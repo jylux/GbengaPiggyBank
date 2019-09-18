@@ -12,27 +12,49 @@
             Savers Haven Piggy Bank: Your Online Savings Solutions
         </h2>
         <nav>
+            <a href="./index.html">Home</a>
             <a href="./about.html">About</a>
             <a href="./login.html">Login</a>
             <a href="./signup.html">Sign Up</a>
         </nav>
 
-        <form method="POST" action="/GbengaPiggyBank2/db.json">
-            
-            First Name:<br>
-            <input type="text" name="first and last name" value="Mickey" id="firstname">
-            <br>
-            Last Name:<br>
-            <input type="text" name="first and last name" value="Mickey" id="lastname">
-            <br>
-            Email:<br>
-            <input type="text" name="username" value="Mickey" id="email">
-            <br>
-            Password<br>
-            <input type="password" name="password" value="Mouse" id="password">
-            <br><br>
-            <input type="submit" value="Submit" id="signUpBtn">
-        </form> 
+        <form method="POST" action="/online-savings-solution/db.json">
+            <div class="container">
+              <h2>Create An Account</h2>
+              <div class="groupfields">
+                <label>Firstname</label>
+                <input type="text" name="firstname" placeholder="Enter Firstname" id="firstname" class="input">
+                <div class="error" id="usererror"></div>
+              </div>
+    
+              <div class="groupfields">
+                <label>Lastname</label>
+                <input type="text" name="lastname" placeholder="Enter Lastname" id="lastname" class="input">
+                <div class="error" id="usererror"></div>
+              </div>
+        
+              <div class="groupfields">
+                <label>Email</label>
+                <input type="email" name="email" placeholder="Enter Email" id="emailId" class="input">
+                <div class="error" id="emailerror"></div>
+              </div>
+        
+              <div class="groupfields">
+                <label>Password</label>
+                <input type="password" name="password" placeholder="Enter password" id="mypassword" class="input">
+                <div class="error" id="passworderror"></div>
+              </div>
+        
+              <div class="call-to-action">
+                <input type="button" name="submit" id="submit" value="Create Account">
+                <span>By clicking "Create Account", you agree that you have read the <a href="#">terms of service</a> and <a href="#">privacy policy</a></span>
+              </div>
+            </div>
+        
+            <div class="bottom">
+              <span>Already have an account?<a href="login.html"> Log In</a></span>
+            </div>
+          </form>
         <p class="regMessage"></p>
         <span>Already have an account?<a href="login.html"> Log In</a></span>
     </body>
