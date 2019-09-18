@@ -17,16 +17,16 @@
             <a href="./signup.html">Sign Up</a>
         </nav>
 
-        <form method="POST" action="/GbengaPiggyBank2/db.json">
-            Email:<br>
-            <input type="text" name="username" value="Mickey">
-            First and Last Name:<br>
-            <input type="text" name="first and last name" value="Mickey">
-            <br>
-            Password<br>
-            <input type="password" name="password" value="Mouse">
-            <br><br>
-            <input type="submit" value="Submit">
+        <h1>Deposit Money</h1>
+        <div class="content" id="content">
+        <form method="POST">
+          <div class="groupfields">
+            <label>Type in Amount</label>
+            <input type="number" name="deposit" placeholder="Enter Amount" id="deposit" class="input">
+            <div class="error" id="usererror"></div>
+          </div>
+          <input type="button" name="submit" id="submit-amount" class="submit-amount" value="Deposit">
+          <div id="result"></div>
         </form>
 
         <div class="footer"><a href="#">&#169 2019 All Rights Reserved</a></div>
