@@ -1,18 +1,4 @@
 $(document).ready(function() {
-  //Over sabi Effect
-  // $('.registerBtn').click(function() {
-  //   $('.regForm').fadeIn();
-  // });
-  // $('.closeBtn').click(function() {
-  //   $('.regForm').fadeOut();
-  // });
-  // $('.loginBtn').click(function() {
-  //   $('.loginForm').fadeIn();
-  // });
-  // $('.closeLoginBtn').click(function() {
-  //   $('.loginForm').fadeOut();
-  // });
-  //Registration Function
   $('.signUpBtn').click(function(event) {
     event.preventDefault();
     const firstname = $('#firstname').val();
