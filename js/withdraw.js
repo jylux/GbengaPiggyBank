@@ -1,17 +1,32 @@
 $(document).ready(function() {
-    $('#signUpBtn').click(function(event) {
-        event.preventDefault();
-        const firstname = $('#firstname').val();
-        const lastname = $('#lastname').val();
-        const username = $('#username').val();
-        const password = $('#password').val();
-        const email = $('#email').val();
-        //Check if user input is empty
-        if (!fullname || !username || !password || !email) {
-          $('.regMessage').html('Kindly fill in all fields');
-          return;
-        }
-        //Make get request to check if the user already exist
+  $(function () {
+    let currentUser = localStorage.getItem("email");
+    console.log(currentUser);
+  
+    let today = new Date();
+    let day = today.getDate();
+    let month = today.getMonth();
+    let year = today.getFullYear();
+    
+    if (day < 10) {
+      day = "0" + day;
+    }
+    if(month <10){
+      month = "0" + month;
+    }
+    today = day + "-" + month + "-" + year;
+    $('#wdrawMessage').html(today);;
+    
+    $("#submitAmount").click(()=> {
+      let obj = {};
+      let amount = parseInt($("#deposit").val());
+      let url =  `http://localhost:3000/users/?email=${currentUser}`;
+      let transaction_date = today;
+      if (!amount || amont < 0) {
+        alert("Invalid amount");
+        return false;
+      }
+      else {
         $.ajax({
           method: 'GET',
           url: `http://localhost:3000/users?email=${email}`,
@@ -22,26 +37,41 @@ $(document).ready(function() {
             $('.regMessage').html('Loading....');
           },
           success: function(response) {
-            if (response.length) {
-              $('.regMessage').html('User already exist');
-            } else {
+            if (response.balance < amount) {
+              return alert("Insufficient funds");
+            }
+            
+            else {
               //Submit the user data if the user does not exist
+              var transactionsArray = response["transactions"];
+              var newObj = JSON.parse(transactionsArray);
+              var id = newObj.length + 1;
+              $("#withdraw").each(function(){
+                obj['id'] = id; 
+                obj['withdraw'] = amount; 
+                obj['transaction_date'] = transaction_date
+              });
+              newArr.push(obj);
+              transactionsArray = JSON.stringify(newArr);
+              if (response.hasOwnProperty("balance")) {
+              var newWithdrawal = Number(response.balance) - amount;
+              newBalance = newWithdrawal;
+              }
+            else{
+              alert("Error");
+            }
               $.ajax({
-                method: 'POST',
+                method: 'PUT',
                 url: 'http://localhost:3000/users',
                 data: {
-                  firstname,
-                  lastname,
-                  username,
-                  email,
-                  password,
+                  balance,
+                  transacstionsArray
                 },
                 beforeSend: function() {
-                  $('.regMessage').html('Loading....');
+                  $('#wdrawMessage').html('Loading....');
                 },
-                success: function() {
-                  $('.regMessage').html('Registration Successfull');
-                  windows.location.assign('login.html')
+                success: function(response) {
+                  $('#result').html("Your Balance is:", newBalance);
                 },
               });
             }
