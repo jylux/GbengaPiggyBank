@@ -4,26 +4,26 @@ $(function() {
 $.ajax({
   method: "GET",
   url: url,
-  dataType: "json"
-}).done((data)=>{
-  console.log(JSON.parse(data[0].transactions));
-  let parsedTransactions = JSON.parse(data[0].transactions);
-  $("#show-balance").append("<p><h4>Balance:</h4>"+data[0].balance+"</p>");
-    for(let i of parsedTransactions){
-      if(i.withdraw == undefined || i.withdraw == null || i.withdraw == ""){
-        i.withdraw = 0;
-      }
-      if(i.deposit == undefined || i.deposit == null || i.deposit == ""){
-        i.deposit = 0;
-      }
-      $("#contents").append(
-        "<tr>"+
-             "<td>"+i.id+"</td>"+
-             "<td>"+i.deposit+"</td>"+
-             "<td>"+i.withdraw+"</td>"+
-             "<td>"+i.transaction_date+"</td>"+
-          "</tr>"
-        )
-    }
+  success: function(data){
+    data.forEach(transaction => {
+      var deposit = transaction.deposit;
+      var withdraw = transaction.withdraw;
+      var transDate = new Date();
+      if(!withdraw){
+                withdraw = 0;
+              }
+              if(!deposit){
+                deposit = 0;
+              }
+              $("#contents").append(
+                "<tr>"+
+                     "<td>"+1+"</td>"+
+                     "<td>"+deposit+"</td>"+
+                     "<td>"+withdraw+"</td>"+
+                     "<td>"+transDate+"</td>"+
+                  "</tr>"
+                )
+    });
+  }
 })
 });

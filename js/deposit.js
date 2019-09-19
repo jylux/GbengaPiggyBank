@@ -16,9 +16,9 @@ $(function () {
   today = day + "-" + month + "-" + year;
   console.log(today);
   
-  $("#submit-amount").click(function addTransactions(deposit) {
+  $("#submit-amount").click(function() {
     var obj = {};
-    let amount = Number($("#deposit").val());
+    let amount = parseInt($("#deposit").val());
     let url =  `http://localhost:3000/users/?email=${currentUser}`;
     let result = $("#result");
     let transaction_date = today;
@@ -30,43 +30,39 @@ $(function () {
       $.ajax({
         method: "GET",
         url: url,
-      }).done((data)=>{
-      console.log(data);
-      var transactionsArray = data[0]["transactions"];
-      var newObj = JSON.parse(transactionsArray);
-      var id = newObj.length + 1;
-      $("#deposit").each(function(){obj['id'] = id,obj['deposit'] = amount,obj['transaction_date'] = transaction_date;});
-      newObj.push(obj);
-      transactionsArray = JSON.stringify(newObj);
-
-      if (data[0].hasOwnProperty("balance")) {
-        var newBalance = 0;
-        var newDeposit = Number(data[0].balance) + amount;
-        newBalance += newDeposit;
-      }
-      else{
-        alert("Error");
-      }
-      $.ajax({
-      method: "PUT",
-      //method: "PATCH",
-      url: `http://localhost:3000/users/${data[0].id}`,
-      data: {
-      firstname: data[0].firstname,
-      lastname: data[0].lastname,
-      email: data[0].email,
-      password: data[0].password,
-      balance: newBalance,
-      transactions: transactionsArray
-      }
-      }).done((data)=>{
-          console.log(data);
-        //   $(".submit-amount").hide(500, function(){
-        console.log("Successful Deposit");
-        //result.append("Your Balance is: " + newBalance);
-        document.getElementById('result').innerHTML = "Your Balance is: " + newBalance;
-      });
-      });
+        success: function(data){
+          var id = data[0].id;
+          var newDeposit = $('#deposit').val();
+          var balance = data[0].balance;
+          var deposit = data[0].deposit;
+          if(balance){
+            var newBalance = parseInt(balance) + parseInt(newDeposit);
+            $.ajax({
+              type: 'PATCH',
+              url: `http://localhost:3000/users/${id}`,
+              data:{
+                balance : newBalance,
+                deposit : newDeposit
+              },
+              success: function(){
+                $('#depSuc').html('deposit successful')
+              }
+            })
+          }else{
+            $.ajax({
+              type: 'PATCH',
+              url: `http://localhost:3000/users/${id}`,
+              data:{
+                balance : newDeposit,
+                deposit : newDeposit
+              },
+              success: function(){
+                $('#depSuc').html('deposit successful')
+              }
+            })
+          }
+        }
+      })
     }
   });
 });

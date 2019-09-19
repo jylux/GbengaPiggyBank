@@ -1,11 +1,14 @@
 {
   "users": [
     {
-      "firstname": "Gbenga",
-      "lastname": "Kalejaiye",
+      "firstname": "sajux",
+      "lastname": "yuq",
       "email": "gbengachris2@gmail.com",
       "password": "etr123",
-      "id": 1
+      "id": 1,
+      "balance": "200000",
+      "deposit": "200",
+      "withdraw": "300"
     },
     {
       "firstname": "kehinde",
