@@ -13,16 +13,15 @@ $(document).ready(function() {
   //   $('.loginForm').fadeOut();
   // });
   //Registration Function
-  $('#signUpBtn').click(function(event) {
+  $('.signUpBtn').click(function(event) {
     event.preventDefault();
     const firstname = $('#firstname').val();
     const lastname = $('#lastname').val();
-    const username = $('#username').val();
     const password = $('#password').val();
     const email = $('#email').val();
     //Check if user input is empty
-    if (!fullname || !username || !password || !email) {
-      $('#regMessage').html('Kindly fill in all fields');
+    if (!firstname || !lastname || !password || !email) {
+      $('.regMessage').html('Kindly fill in all fields');
       return;
     }
     //Make get request to check if the user already exist
@@ -33,11 +32,11 @@ $(document).ready(function() {
         email,
       },
       beforeSend: function() {
-        $('#regMessage').html('Loading....');
+        $('.regMessage').html('Loading....');
       },
       success: function(response) {
         if (response.length) {
-          $('#regMessage').html('User already exist');
+          $('.regMessage').html('User already exist');
         } else {
           //Submit the user data if the user does not exist
           $.ajax({
@@ -48,14 +47,12 @@ $(document).ready(function() {
               lastname,
               email,
               password,
-              balance,
-              transactions
             },
             beforeSend: function() {
-              $('#regMessage').html('Loading....');
+              $('.regMessage').html('Loading....');
             },
             success: function() {
-              $('#regMessage').html('Registration Successfull');
+              $('.regMessage').html('Registration Successfull');
               window.location.assign('login.html')
             },
           });

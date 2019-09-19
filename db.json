@@ -1,40 +1,5 @@
 {
   "users": [
-    {
-      "firstname": "John",
-      "lastname": "Doe",
-      "email": "jdoe@yahoo.com",
-      "password": "123abc",
-      "balance": "6400",
-      "transactions": "[]",
-      "id": 1
-    },
-    {
-      "firstname": "Jane",
-      "lastname": "Doe",
-      "email": "janedoe@yahoo.com",
-      "password": "456abc",
-      "balance": 0,
-      "transactions": "[]",
-      "id": 2
-    },
-    {
-      "firstname": "paul",
-      "lastname": "ryan",
-      "email": "pryan@gmail.com",
-      "password": "pryan",
-      "balance": "0",
-      "transactions": "[]",
-      "id": 3
-    },
-    {
-      "firstname": "usman",
-      "lastname": "olanrewaju",
-      "email": "oakinbiyiusman@gmail.com",
-      "password": "usman",
-      "balance": "4000",
-      "transactions": "[{\"id\":1,\"deposit\":3000,\"transaction_date\":\"27-05-2019\"}]",
-      "id": 4
-    }
+    
   ]
 }

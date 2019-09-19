@@ -72,10 +72,11 @@ $(document).ready(function() {
                 },
                 success: function(response) {
                   $('#result').html("Your Balance is:", newBalance);
-                },
-              });
+              
             }
-          },
-        });
+          }
+        }
+      
       });
     });
+});
