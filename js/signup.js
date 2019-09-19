@@ -46,16 +46,17 @@ $(document).ready(function() {
             data: {
               firstname,
               lastname,
-              username,
               email,
               password,
+              balance,
+              transactions
             },
             beforeSend: function() {
               $('.regMessage').html('Loading....');
             },
             success: function() {
               $('.regMessage').html('Registration Successfull');
-              windows.location.assign('login.html')
+              window.location.assign('login.html')
             },
           });
         }
