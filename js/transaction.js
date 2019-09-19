@@ -1,33 +1,36 @@
 $(document).ready(function() {
-    $('#signUpBtn').click(function(event) {
-        event.preventDefault();
-        const firstname = $('#firstname').val();
-        const lastname = $('#lastname').val();
-        const username = $('#username').val();
-        const password = $('#password').val();
-        const email = $('#email').val();
-        //Check if user input is empty
-        if (!fullname || !username || !password || !email) {
-          $('.regMessage').html('Kindly fill in all fields');
-          return;
-        }
-        //Make get request to check if the user already exist
+    $(function() {
+        const currentUser = localStorage.getItem("email");
+        //Make get request to output the users transaction
         $.ajax({
           method: 'GET',
-          url: `http://localhost:3000/users?email=${email}`,
+          url: `http://localhost:3000/users?email=${currentUser}`,
           data: {
-            email,
+            json
           },
           beforeSend: function() {
-            $('.regMessage').html('Loading....');
+            $('#transMessage').html('Loading....');
           },
           success: function(response) {
-            if (response.length) {
-              $('.regMessage').html('User already exist');
-            } else {
-              //Submit the user data if the user does not exist
+            $("#showBalance").append("<p><h4>Balance:</h4>"+response.balance+"</p>");
+              for(let i of response.transactions){
+                  if(!i.withdraw){
+                      i.withdraw = 0;
+                  }
+
+                  if(!i.deposit){
+                  i.deposit = 0;
+                  }
+                  $("#contents").append(
+                    "<tr>"+
+                        "<td>"+i.id+"</td>"+
+                        "<td>"+i.deposit+"</td>"+
+                        "<td>"+i.withdraw+"</td>"+
+                        "<td>"+i.transaction_date+"</td>"+
+                        "</tr>"
+                      )
+                }
             }
-          }
         });
     
     });
