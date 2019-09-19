@@ -1,5 +1,18 @@
 {
   "users": [
-    
+    {
+      "firstname": "Gbenga",
+      "lastname": "Kalejaiye",
+      "email": "gbengachris2@gmail.com",
+      "password": "etr123",
+      "id": 1
+    },
+    {
+      "firstname": "kehinde",
+      "lastname": "Kalejaiye",
+      "email": "asfh@gmail.com",
+      "password": "etr123",
+      "id": 2
+    }
   ]
 }

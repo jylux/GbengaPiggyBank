@@ -24,7 +24,7 @@ $(document).ready(function() {
           $('.regMessage').html('Login sucessful');
           $('.checkLogin').html('You are logged in');
           localStorage.setItem('email', emailLogin);
-          //redirect to home page if the login is successfull
+          //redirect to dashboard if the login is successfull
           window.location.assign('dashboard.html');
         } else {
           $('.regMessage').html('Username or password Incorrect');

@@ -21,23 +21,28 @@
               <h2>Log In</h2>
               <div class="groupfields">
                 <label>Email</label>
-                <input type="email" name="email" placeholder="Enter Email" id="emailId" class="input">
+                <input type="email" name="email" placeholder="Enter Email" id="emailLogin" class="input">
                 <div class="error" id="emailerror"></div>
               </div>
         
               <div class="groupfields">
                 <label>Password</label>
-                <input type="password" name="password" placeholder="Enter password" id="mypassword" class="input">
+                <input type="password" name="password" placeholder="Enter password" id="passwordLogin" class="input">
                 <div class="error" id="passworderror"></div>
               </div>
         
               <div class="call-to-action">
-                <input type="button" name="submit" id="submit" value="Continue">
+                <input type="button" name="submit" class="loginBtn" value="Login">
               </div>
             </div>
+            <p class="regMessage"></p>
+            <p class="checkLogin"></p>
+
         </form>
         <span>New to Piggy Bank?</span>
         <a href="signup.html"><input type="button" name="submit" id="submit2" value="Sign Up"></a>
+        <script src="./js/jquery.js"></script>
+    <script src="./js/login.js"></script>
 
     </body>
 </html>
