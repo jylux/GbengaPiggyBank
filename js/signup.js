@@ -22,7 +22,7 @@ $(document).ready(function() {
     const email = $('#email').val();
     //Check if user input is empty
     if (!fullname || !username || !password || !email) {
-      $('.regMessage').html('Kindly fill in all fields');
+      $('#regMessage').html('Kindly fill in all fields');
       return;
     }
     //Make get request to check if the user already exist
@@ -33,11 +33,11 @@ $(document).ready(function() {
         email,
       },
       beforeSend: function() {
-        $('.regMessage').html('Loading....');
+        $('#regMessage').html('Loading....');
       },
       success: function(response) {
         if (response.length) {
-          $('.regMessage').html('User already exist');
+          $('#regMessage').html('User already exist');
         } else {
           //Submit the user data if the user does not exist
           $.ajax({
@@ -52,10 +52,10 @@ $(document).ready(function() {
               transactions
             },
             beforeSend: function() {
-              $('.regMessage').html('Loading....');
+              $('#regMessage').html('Loading....');
             },
             success: function() {
-              $('.regMessage').html('Registration Successfull');
+              $('#regMessage').html('Registration Successfull');
               window.location.assign('login.html')
             },
           });
