@@ -45,7 +45,11 @@ $(function () {
                 withdraw : newWithdraw
               },
               success: function(){
-                $('#witSuc').html('successful!')
+                $('#witSuc').html('successful!');
+                console.log('You have withdrawn:');
+                console.log(newWithdraw);
+                console.log('Your new balance is:');
+                console.log(newBalance);
               }
             })
           }

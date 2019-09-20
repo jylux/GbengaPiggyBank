@@ -57,7 +57,11 @@ $(function () {
                 deposit : newDeposit
               },
               success: function(){
-                $('#depSuc').html('deposit successful')
+                $('#depSuc').html('deposit successful');
+                console.log('You have deposited:');
+                console.log(newDeposit);
+                console.log('Your new balance is:');
+                console.log(newBalance);
               }
             })
           }
