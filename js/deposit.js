@@ -22,7 +22,7 @@ $(function () {
     let url =  `http://localhost:3000/users/?email=${currentUser}`;
     let result = $("#result");
     let transaction_date = today;
-    if (amount == null || amount == "" || !(amount > 0)) {
+    if (!amount || amount <0) {
       alert("Invalid amount");
       return false;
     }

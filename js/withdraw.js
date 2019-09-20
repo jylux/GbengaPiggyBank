@@ -18,12 +18,12 @@ $(function () {
   console.log(today);
   $("#submit-amount").click(()=>{
     var obj = {};
-    let amount = Number($("#withdraw").val());
+    let amount = parseInt($("#withdraw").val());
     let url = `http://localhost:3000/users/?email=${currentUser}`;
     let result = $("#result");
     let transaction_date = today;
     let id = transArr.length + 1;
-    if (amount == null || amount == "" || !(amount > 0)) {
+    if (!amount || amount < 0) {
       alert("Invalid amount");
       return false;
     }
