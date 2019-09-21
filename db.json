@@ -1,21 +1,24 @@
 {
   "users": [
     {
-      "firstname": "sajux",
-      "lastname": "yuq",
+      "firstname": "Gbenga",
+      "lastname": "Kalejaiye",
       "email": "gbengachris2@gmail.com",
-      "password": "etr123",
+      "password": "234gbe",
       "id": 1,
-      "balance": "200000",
+      "balance": "0",
       "deposit": "200",
-      "withdraw": "300"
+      "withdraw": "200"
     },
     {
       "firstname": "kehinde",
-      "lastname": "Kalejaiye",
-      "email": "asfh@gmail.com",
-      "password": "etr523",
-      "id": 2
+      "lastname": "kalejaiye",
+      "email": "kkehinde@gmail.com",
+      "password": "chris",
+      "id": 2,
+      "balance": "5000",
+      "deposit": "10000",
+      "withdraw": "5000"
     }
   ]
 }

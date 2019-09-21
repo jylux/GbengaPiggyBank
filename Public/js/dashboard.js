@@ -19,18 +19,16 @@ $(function () {
               method: "GET",
               url: url,
               success: function(data){
-                var id = data[0].id;
                 var balance = data[0].balance;
                 if(!balance){
-                  console.log('Your balance is');
-                  console.log(today);
-                  console.log(0.00);
-                  console.log('save some money today');
+                    $('#dashboard1').html('Your balance as at today is');
+                    $('#dashboard2').html(0.00);
+                    $('#dashboard3').html('save some money today');
                 }
                 if(balance){
-                    console.log('Your balance is');
-                    console.log(today);
-                    console.log(balance);
+                    $('#dashboard1').html('Your balance as at today is');
+                    $('#dashboard2').html(balance);
+                    $('#dashboard3').html('Great! Keep on saving');
                 }
             }
     })

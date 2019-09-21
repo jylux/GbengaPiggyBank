@@ -46,10 +46,9 @@ $(function () {
               },
               success: function(){
                 $('#witSuc').html('successful!');
-                console.log('You have withdrawn:');
-                console.log(newWithdraw);
-                console.log('Your new balance is:');
-                console.log(newBalance);
+                $('#dashboard1').html('You have withdrawn');
+                $('#dashboard2').html(newWithdraw);
+                $('#dashboard3').html(balance);
               }
             })
           }
